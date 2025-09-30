@@ -1,0 +1,11 @@
+%6 - Desenvolvimento de Função para Componente par do Sinal
+
+function z_par = componente_par(z)
+
+z_refletido = fliplr(z)
+
+% Aplicar a fórmula da componente ímpar
+
+z_par = ((z) + z_refletido)/2;
+
+end
