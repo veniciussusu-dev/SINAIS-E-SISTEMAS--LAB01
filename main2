@@ -1,0 +1,49 @@
+%Parte 2: Manipulação de Áudio com MATLAB (Octave ou Scilab) 
+
+% Carrega o arquivo de áudio 'handel.mat'
+load handel.mat
+
+%02-Reprodução do Áudio
+% --- 1. Prepara e Reproduz o Áudio Original ---
+disp('Preparando e reproduzindo áudio original...');
+player_original = audioplayer(y, Fs);
+%play(player_original);
+
+% Espera até que a reprodução do áudio original termine
+waitfor(player_original, 'Running', 'off');
+%03- Manipulação do Áudio com audioplayer
+% --- 2. Inverte o Sinal ---
+% A função fliplr inverte o vetor y
+y_invertido = flip(y);
+whos y_invertido FS
+
+% --- 3. Prepara e Reproduz o Áudio Invertido ---
+disp('Preparando e reproduzindo áudio invertido...');
+player_invertido = audioplayer(y_invertido,Fs);
+play(player_invertido);
+waitfor(player_invertido, 'Running', 'off');
+
+nova_fs = 0.5 * Fs
+disp('Preparando e reproduzindo áudio lento...');
+play_lento =  audioplayer(y, nova_fs)
+%%play(play_lento);
+waitfor(play_lento, 'Running', 'off');
+
+
+fator_acelerado = 2
+nova_fs1= fator_acelerado*Fs;
+
+disp('Preparando e reproduzindo áudio lento...');
+play_rapido =  audioplayer(y, nova_fs1)
+%play(play_rapido);
+
+
+%04- Programação de uma Função para Transformações no Sinal
+
+a=2
+b=10
+
+
+y =  ft(x,a,b);
+
+%sound(y, Fs);
