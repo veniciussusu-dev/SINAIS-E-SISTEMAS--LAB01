@@ -1,0 +1,41 @@
+
+%Discretizar o tempo para fazer ser "continuo"
+ts = 0.01
+
+%Intervalo de tempo
+t_inicial= -1
+t_final = 1
+% 2A. SINAL CONTÍNUO
+t = [ t_inicial:0.0001: t_final]
+z =  sin(0.5*pi*t) + cos(2*pi*t) + 1
+
+
+
+
+% 2B. SINAL DISCRETO (para o stem azul)
+t_disc = [t_inicial:ts:t_final];
+ 
+z_disc = sin(0.5*pi*t_disc) + cos(2*pi*t_disc) + 1;
+
+
+
+figure;
+%plotagem da função discreta
+stem(t_disc,z_disc,"filled",'b', 'LineStyle','-.'    )
+hold on
+
+%Plotagem da funcao z_impar
+z_impar = componente_impar( z);
+plot(t, z_impar, 'b', 'LineStyle','-')
+grid on
+
+%Plotagem da funcao original z
+hold on
+plot(t, z, 'r', 'LineWidth',2)
+grid on
+
+hold on
+%Plotagem da funcao z_par
+z_par = componente_par(z);
+plot(t, z_par, 'g', 'LineStyle','-')
+grid on
