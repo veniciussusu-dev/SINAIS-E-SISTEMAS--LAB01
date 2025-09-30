@@ -1,0 +1,12 @@
+function y = ft(x,a,b)
+N_x = length(x);
+    n = 1:N_x; 
+indices_x = round(a * n + b);
+
+indices_validos = (indices_x >= 1) & (indices_x <= N_x);
+
+y = zeros(size(x));
+
+y(indices_validos) = x(indices_x(indices_validos));
+
+end
